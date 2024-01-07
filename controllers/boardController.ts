@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { Board } from "../models";
+import { BoardInputs } from "../dto";
 
 // get all boards
 export const getBoards = async (
@@ -13,10 +14,6 @@ export const getBoards = async (
     return res.status(400).json({ message: "Boards not found" });
   }
 
-  if (!boards?.length) {
-    return res.status(200).json([]);
-  }
-
   return res.status(200).json(boards);
 };
 
@@ -26,7 +23,7 @@ export const createBoard = async (
   res: Response,
   next: NextFunction
 ) => {
-  const { title } = req.body;
+  const { title } = <BoardInputs>req.body;
 
   if (!title) {
     return res.status(400).json({ message: "Title is required" });
@@ -57,7 +54,7 @@ export const updateBoard = async (
   res: Response,
   next: NextFunction
 ) => {
-  const { title } = req.body;
+  const { title } = <BoardInputs>req.body;
   const id = req.params.id;
 
   if (!id) {
