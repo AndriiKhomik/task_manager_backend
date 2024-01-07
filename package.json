@@ -1,0 +1,40 @@
+{
+  "name": "task_manager_backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.ts",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server.ts",
+    "build": "tsc -p .",
+    "postinstall": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "16.20.1",
+    "npm": "8.1.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndriiKhomik/task_manager_backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndriiKhomik/task_manager_backend/issues"
+  },
+  "homepage": "https://github.com/AndriiKhomik/task_manager_backend#readme",
+  "dependencies": {
+    "@types/mongoose": "^5.11.97",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^8.0.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "nodemon": "^3.0.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.3"
+  }
+}
