@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import path from "path";
 
 import { MongooseError } from "mongoose";
+import { boardRoute } from "./routes";
 import { dbConnect } from "./config/dbConnect";
 
 const PORT = process.env.PORT || 3000;
@@ -15,6 +16,8 @@ dbConnect();
 app.use(express.json());
 
 app.use("/", express.static(path.join(__dirname, "public")));
+
+app.use("/board", boardRoute);
 
 mongoose.connection.once("open", () => {
   console.log("Connected to MongoDB");
