@@ -54,8 +54,7 @@ export const updateBoard = async (
   res: Response,
   next: NextFunction
 ) => {
-  const { title } = <BoardInputs>req.body;
-  const id = req.params.id;
+  const { title, id } = <BoardInputs>req.body;
 
   if (!id) {
     return res.status(400).json({ message: "Board id is required" });
@@ -95,10 +94,10 @@ export const deleteBoard = async (
   res: Response,
   next: NextFunction
 ) => {
-  const boardId = req.params.id;
+  const { id } = req.body;
 
-  if (boardId) {
-    const board = await Board.findById(boardId);
+  if (id) {
+    const board = await Board.findById(id);
 
     if (!board) {
       return res.status(400).json({ message: "Board not found" });
