@@ -8,7 +8,7 @@ export const getCardsByBoardId = async (
   res: Response,
   next: NextFunction
 ) => {
-  const { boardId } = <CardInputs>req.body;
+  const boardId = req.params.boardId;
 
   if (boardId) {
     const cards = await Card.find({ boardId });

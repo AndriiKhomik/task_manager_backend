@@ -8,7 +8,7 @@ import {
 
 const router = express.Router();
 
-router.get("/cards", getCardsByBoardId);
+router.get("/cards/:boardId", getCardsByBoardId);
 router.post("/create", createCard);
 router.put("/update", updateCard);
 router.delete("/delete", deleteCard);
