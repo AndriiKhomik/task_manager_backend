@@ -44,7 +44,7 @@ export const updateCard = async (
   res: Response,
   next: NextFunction
 ) => {
-  const { id, description, title } = <CardInputs>req.body;
+  const { id, description, title, status } = <CardInputs>req.body;
 
   if (id) {
     const card = await Card.findById(id);
@@ -55,6 +55,31 @@ export const updateCard = async (
 
     card.description = description;
     card.title = title;
+    card.status = status;
+
+    const result = await card.save();
+
+    return res.status(200).json(result);
+  }
+
+  return res.status(400).json({ message: "ID is required" });
+};
+
+export const updateCardStatus = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const { id, status } = <CardInputs>req.body;
+
+  if (id) {
+    const card = await Card.findById(id);
+
+    if (!card) {
+      return res.status(400).json({ message: "Card not found" });
+    }
+
+    card.status = status;
 
     const result = await card.save();
 
