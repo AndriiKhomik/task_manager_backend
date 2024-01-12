@@ -1,6 +1,6 @@
 require("dotenv").config();
 require("express-async-errors");
-const corsOptions = require("./config/corsOptions");
+// const corsOptions = require("./config/corsOptions");
 import cors from "cors";
 import express from "express";
 import mongoose from "mongoose";
@@ -11,6 +11,10 @@ import { boardRoute, cardRoute } from "./routes";
 import { dbConnect } from "./config/dbConnect";
 
 const PORT = process.env.PORT || 8000;
+
+const corsOptions = {
+  origin: "https://task-manager-fv49.onrender.com/",
+};
 
 const app = express();
 
