@@ -12,15 +12,17 @@ import { dbConnect } from "./config/dbConnect";
 
 const PORT = process.env.PORT || 8000;
 
-const corsOptions = {
-  origin: "https://task-manager-fv49.onrender.com/",
-};
-
 const app = express();
 
 dbConnect();
 
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: "https://task-manager-fv49.onrender.com",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 
