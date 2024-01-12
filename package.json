@@ -3,9 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.ts",
+  "nodemonConfig": {
+    "watch": [
+      "src"
+    ],
+    "ext": "ts",
+    "exec": "ts-node ./src/server.ts"
+  },
   "scripts": {
-    "start": "node server",
-    "dev": "nodemon server.ts",
+    "start": "tsc && node dist/server.js",
+    "dev": "nodemon src/server",
     "build": "tsc -p .",
     "postinstall": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
