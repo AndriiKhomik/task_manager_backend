@@ -54,9 +54,10 @@ export const updateBoard = async (
   res: Response,
   next: NextFunction
 ) => {
-  const { title, id } = <BoardInputs>req.body;
+  const boardId = req.params.boardId;
+  const { title } = <BoardInputs>req.body;
 
-  if (!id) {
+  if (!boardId) {
     return res.status(400).json({ message: "Board id is required" });
   }
 
@@ -65,7 +66,7 @@ export const updateBoard = async (
   }
 
   // Confirm that board is exists
-  const board = await Board.findById(id);
+  const board = await Board.findById(boardId);
 
   if (!board) {
     return res.status(400).json({ message: "Board not found" });
@@ -77,7 +78,7 @@ export const updateBoard = async (
     .lean()
     .exec();
 
-  if (duplicate && duplicate?._id.toString() !== id) {
+  if (duplicate && duplicate?._id.toString() !== boardId) {
     return res.status(400).json({ message: "Duplicate board title" });
   }
 
@@ -94,10 +95,10 @@ export const deleteBoard = async (
   res: Response,
   next: NextFunction
 ) => {
-  const { id } = req.body;
+  const boardId = req.params.boardId;
 
-  if (id) {
-    const board = await Board.findById(id);
+  if (boardId) {
+    const board = await Board.findById(boardId);
 
     if (!board) {
       return res.status(400).json({ message: "Board not found" });

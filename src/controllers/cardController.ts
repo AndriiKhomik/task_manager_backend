@@ -44,10 +44,11 @@ export const updateCard = async (
   res: Response,
   next: NextFunction
 ) => {
-  const { id, description, title, status } = <CardInputs>req.body;
+  const cardId = req.params.cardId;
+  const { description, title, status } = <CardInputs>req.body;
 
-  if (id) {
-    const card = await Card.findById(id);
+  if (cardId) {
+    const card = await Card.findById(cardId);
 
     if (!card) {
       return res.status(400).json({ message: "Card not found" });
@@ -70,10 +71,11 @@ export const updateCardStatus = async (
   res: Response,
   next: NextFunction
 ) => {
-  const { id, status } = <CardInputs>req.body;
+  const cardId = req.params.cardId;
+  const { status } = <CardInputs>req.body;
 
-  if (id) {
-    const card = await Card.findById(id);
+  if (cardId) {
+    const card = await Card.findById(cardId);
 
     if (!card) {
       return res.status(400).json({ message: "Card not found" });
@@ -94,10 +96,10 @@ export const deleteCard = async (
   res: Response,
   next: NextFunction
 ) => {
-  const { id } = <CardInputs>req.body;
+  const cardId = req.params.cardId;
 
-  if (id) {
-    const card = await Card.findById(id);
+  if (cardId) {
+    const card = await Card.findById(cardId);
 
     if (card) {
       const result = await card.deleteOne();

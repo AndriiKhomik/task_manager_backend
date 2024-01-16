@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.get("/boards", getBoards);
 router.post("/create", createBoard);
-router.patch("/update", updateBoard);
-router.delete("/delete", deleteBoard);
+router.patch("/update/:boardId", updateBoard);
+router.delete("/delete/:boardId", deleteBoard);
 
 export { router as boardRoute };

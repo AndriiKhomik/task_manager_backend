@@ -11,8 +11,8 @@ const router = express.Router();
 
 router.get("/cards/:boardId", getCardsByBoardId);
 router.post("/create", createCard);
-router.put("/update", updateCard);
-router.patch("/updateStatus", updateCardStatus);
-router.delete("/delete", deleteCard);
+router.put("/update/:cardId", updateCard);
+router.patch("/updateStatus/:cardId", updateCardStatus);
+router.delete("/delete/:cardId", deleteCard);
 
 export { router as cardRoute };
