@@ -9,6 +9,7 @@ export const getBoards = async (
   next: NextFunction
 ) => {
   const boards = await Board.find();
+  console.log(boards);
 
   if (!boards) {
     return res.status(400).json({ message: "Boards not found" });
