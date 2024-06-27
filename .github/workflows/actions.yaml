@@ -1,0 +1,33 @@
+name: Build Node.js server app
+run-name: ${{github.actor}} has triggered the pipeline
+
+on:
+  push:
+    branches: [master, main, dev]
+  pull_request:
+    branches: [master, main, dev]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        node: [16]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{matrix.node}}
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install dependencies
+        run: npm install

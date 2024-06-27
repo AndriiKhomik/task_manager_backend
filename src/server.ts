@@ -16,9 +16,14 @@ const app = express();
 
 dbConnect();
 
+const allowedOrigins = [
+  "https://task-manager-fv49.onrender.com",
+  "http://localhost:3000",
+];
+
 app.use(
   cors({
-    origin: "https://task-manager-fv49.onrender.com",
+    origin: allowedOrigins,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
   })
