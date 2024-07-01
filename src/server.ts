@@ -20,6 +20,9 @@ const allowedOrigins = [
   "https://task-manager-fv49.onrender.com",
   "http://localhost:3000",
   "http://localhost:80",
+  "http://127.0.0.1:80",
+  "http://127.0.0.1:3000",
+  "http://127.0.0.1",
 ];
 
 app.use(
