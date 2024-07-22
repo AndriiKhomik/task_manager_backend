@@ -17,15 +17,10 @@ const app = express();
 dbConnect();
 
 const allowedOrigins = [
+  "*",
   "https://task-manager-fv49.onrender.com",
   "http://localhost:3000",
   "http://localhost:80",
-  "http://127.0.0.1:80",
-  "http://127.0.0.1:3000",
-  "http://127.0.0.1",
-  "http://192.168.16.2",
-  "http://192.168.16.2:80",
-  "http://192.168.16.2:3000",
 ];
 
 app.use(
