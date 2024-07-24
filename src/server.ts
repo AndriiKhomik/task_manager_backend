@@ -19,8 +19,7 @@ dbConnect();
 const allowedOrigins = [
   "https://task-manager-fv49.onrender.com",
   "http://localhost:3000",
-  "http://192.168.56.101:80",
-  "http://192.168.56.101:3000",
+  "http://192.168.56.101:6868",
 ];
 
 app.use(
