@@ -1,7 +1,7 @@
 require("dotenv").config();
 require("express-async-errors");
 // const corsOptions = require("./config/corsOptions");
-import cors from "cors";
+// import cors from "cors";
 import express from "express";
 import mongoose from "mongoose";
 import path from "path";
@@ -31,7 +31,7 @@ dbConnect();
 //   })
 // );
 
-app.use(cors());
+// app.use(cors());
 
 app.use(express.json());
 
