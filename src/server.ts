@@ -17,10 +17,10 @@ const app = express();
 dbConnect();
 
 const allowedOrigins = [
-  "*",
   "https://task-manager-fv49.onrender.com",
   "http://localhost:3000",
-  "http://http://192.168.56.101",
+  "http://192.168.56.101:80",
+  "http://192.168.56.101:3000",
 ];
 
 app.use(
@@ -30,12 +30,6 @@ app.use(
     credentials: true,
   })
 );
-
-// app.use(
-//   cors({
-//     origin: "*",
-//   })
-// );
 
 app.use(express.json());
 
