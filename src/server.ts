@@ -16,17 +16,24 @@ const app = express();
 
 dbConnect();
 
-const allowedOrigins = [
-  "*",
-  "https://task-manager-fv49.onrender.com",
-  "http://localhost:3000",
-];
+// const allowedOrigins = [
+//   "*",
+//   "https://task-manager-fv49.onrender.com",
+//   "http://localhost:3000",
+//   "http://localhost:80",
+// ];
+
+// app.use(
+//   cors({
+//     origin: allowedOrigins,
+//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//     credentials: true,
+//   })
+// );
 
 app.use(
   cors({
-    origin: allowedOrigins,
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true,
+    origin: "*",
   })
 );
 
