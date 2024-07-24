@@ -2,8 +2,8 @@ FROM node:16.20.1-alpine
 
 WORKDIR /code
 
-ENV CI=true
-ENV PORT=8000
+# ENV CI=true
+# ENV PORT=8000
 
 COPY package.json /code/package.json
 
@@ -19,6 +19,6 @@ RUN npm ci
 
 RUN npm run build
 
-EXPOSE 8000
+# EXPOSE 8000
 
 CMD [ "node", "dist/server.js" ]
