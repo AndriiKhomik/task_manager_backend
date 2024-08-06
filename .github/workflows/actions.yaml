@@ -105,4 +105,4 @@ jobs:
         if: always()
         with:
           name: snyk-findings
-          path: snyk-report.sarif
+          path: snyk.sarif
