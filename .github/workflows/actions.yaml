@@ -49,3 +49,17 @@ jobs:
         run: |
           docker push andriikhomik/taskify-app:server-${{ github.run_number }}
           docker push andriikhomik/taskify-app:server-latest
+
+  image_scan:
+    name: Build Image and Run Image Scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker
+        uses: docker-practice/actions-setup-docker@master
+
+      - name: Build Docker Image
+        run: docker build -f Dockerfile -t server:latest .
