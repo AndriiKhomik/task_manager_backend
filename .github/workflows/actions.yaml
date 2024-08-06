@@ -73,5 +73,5 @@ jobs:
       - name: Docker Scout
         uses: docker/scout-action@v1
         with:
-          connamd: quickview,cves
+          command: quickview,cves
           only-severities: critical,high
